@@ -28,5 +28,10 @@
 22. MPI和OpenMPI是用于高性能服务器之间进行信息交互的。
 23. `hostname -I` 可以显示当前服务器的IP.
 24. salloc命令交互模式申请资源`salloc --job-name=test --nodes=1 --gres=gpu:2 --partition=AI4Molecule --quotatype=reserved`，`srun --jobid=<jobid> --pty bash`进入申请的资源。
-25. 
+25. tqdm是对循环写成进度条的形式
+26. 神经网络可视化的工具：tensorboard，npitune,wandb。太多了不知道用哪个，npitune吧，其扩展包`neptune-notebooks`在Jupyter lab4.0版本不能用。
+27. python中如何获得环境变量：`os.environ["ENV_VALUE_Name"]`
+28. hugging Face 模型保存网站
+29. forword会再模型实例化之后，确定输入就会被调用。
+30. g++和gcc安装之后，需要通过软连接放在具体环境变量的bin中
 

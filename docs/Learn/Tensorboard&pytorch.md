@@ -18,12 +18,12 @@ conda install tensorboard
 pytorch中使用Tensorboard只需要导入`SummaryWriter`函数即可，它将想要保存的数据以特定的格式写入特定的文件夹，再通过命令行命令读去该文件夹通过web显示。
 ```python
 from torch.utils.tensorboard import SummaryWriter
-write = SummaryWriter("./log")
+write = SummaryWriter("./logs")
 writer.add_scalar(tag,scalar_value,global_step)
 ```
 
 ```shell
-tensorboard --logdir=./log --port 10003 --host=ip_adress
+tensorboard --logdir=./logs --port 10003 --host=ip_adress
 ```
 ### 常用的参数overview
 官方文档里写了比较详细的内容，介绍了常用的[函数](https://pytorch.org/docs/stable/tensorboard.html)
@@ -78,14 +78,55 @@ writer.add_graph(model, dummy_input)
 writer.close()
 ```
 
-![git-workflow](../doc_images/learn/tensorboard-1.png)
+<img src="../doc_images/learn/tensorboard-1.png" alt="git-workflow" style="width:50%;height:auto;">
 
 ### 训练过程的可视化
-这一步应该是最常用的，可以查看想监控的数值，比如准确率，AUC等数值的变化
+这一步应该是最常用的，可以查看想监控的数值，比如损失函数，准确率等数值的变化
+
+```python
+import torch
+import torch.nn as nn
+import torch.optim as optim
+from torch.utils.data import DataLoader
+from torch.utils.tensorboard import SummaryWriter
+
+# 定义一个简单的神经网络模型
+class SimpleModel(nn.Module):
+    def __init__(self):
+        super(SimpleModel, self).__init__()
+        self.fc = nn.Linear(10, 1)
+
+    def forward(self, x):
+        return self.fc(x)
+
+# 创建一个 SummaryWriter 对象，指定日志保存的目录
+writer = SummaryWriter('logs')
+train_data = torch.randn(100, 10)
+train_labels = torch.randn(100, 1)
+model = SimpleModel()
+criterion = nn.MSELoss()
+optimizer = optim.SGD(model.parameters(), lr=0.01)
 
 
+epochs = 100
+for epoch in range(epochs):
+    outputs = model(train_data)
+    loss = criterion(outputs, train_labels)
+    # 反向传播和优化
+    optimizer.zero_grad()
+    loss.backward()
+    optimizer.step()
+    # 记录训练过程中的损失函数，并提供唯一的步数标识
+    writer.add_scalar('Loss', loss.item(), global_step=epoch)
 
-### Referebce
+writer.close()
+```
+
+可以在tensorboard的可视化界面中看到loss的变化曲线。
+
+<img src="../doc_images/learn/tensorboard_loss.png" alt="git-workflow" style="width: 50%;height: auto;">
+
+### Reference
 [csdn_bolg](https://blog.csdn.net/qq_41573860/article/details/106674370)
 
 [blog2](https://towardsdatascience.com/a-complete-guide-to-using-tensorboard-with-pytorch-53cb2301e8c3)

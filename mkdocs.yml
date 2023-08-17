@@ -122,8 +122,8 @@ nav:
 
   - Learn: 
     - Overview : "Learn/learn_homepage.md"
-    - knowledage : "Learn/Small_knowledge_point.md"
-    - knowledage : "Learn/Knowledage_block.md"
+    - Small Knowledage : "Learn/Small_knowledge_point.md"
+    - Knowledage Block : "Learn/Knowledage_block.md"
     - z2m-pytorch :
       - chacpter00 : "Learn/z2m-pytorch/00_pytorch_foundmental.ipynb"
       - chacpter01 : "Learn/z2m-pytorch/01_pytorch_workflow.ipynb"
