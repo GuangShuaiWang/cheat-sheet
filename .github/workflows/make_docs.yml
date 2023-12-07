@@ -25,20 +25,20 @@ jobs:
 #           pip install pandas
 #           pip install tabulate
 #           python ./script/steam.py
-      - name: mkdocs
-        run: |
-          pip install mkdocs-material
-          pip install mkdocs-jupyter
-          pip install pillow cairosvg
-          pip install mkdocs-minify-plugin
-          mkdocs gh-deploy --force
+      # - name: mkdocs
+      #   run: |
+      #     pip install mkdocs-material
+      #     pip install mkdocs-jupyter
+      #     pip install pillow cairosvg
+      #     pip install mkdocs-minify-plugin
+      #     mkdocs gh-deploy --force
 
       - name: Deploy to Custom Domain
         uses: peaceiris/actions-gh-pages@v3
         with:
           personal_token: ${{ secrets.PERSONAL_TOKEN }}
-          external_repository: GuangShuaiWang/personal-website
+          external_repository: GuangShuaiWang/cheat-sheet
           publish_dir: ./site
-          cname: wanggsh.cn
+          cname: 
           target_branch: gh-pages
           commit_message: 'Deploy to custom domain'

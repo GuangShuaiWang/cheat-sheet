@@ -1,4 +1,4 @@
-site_name: Heiqihuolin website
+site_name: Cheat sheet
 site_url: #http://www.wanggsh.cn
 site_author: Wangguangshuai
 site_description: >-
@@ -118,23 +118,18 @@ markdown_extensions:
 
 # Page tree
 nav:
-  - Home: index.md
-
-  - Learn: 
-    - Overview : "Learn/learn_homepage.md"
-    - Small Knowledage : "Learn/Small_knowledge_point.md"
-    - Knowledage Block : "Learn/Knowledage_block.md"
-    - z2m-pytorch :
-      - chacpter00 : "Learn/z2m-pytorch/00_pytorch_foundmental.ipynb"
-      - chacpter01 : "Learn/z2m-pytorch/01_pytorch_workflow.ipynb"
-      - chacpter02 : "Learn/z2m-pytorch/02_pytorch_classification.ipynb"
-      - chacpter03 : "Learn/z2m-pytorch/03_pytorch_computer_vision.ipynb"
-    - Transformer : "Learn/Transformer_structure.ipynb"
-    - DeepLearning : "Learn/DeepLearning knowledge.md"
-    - MKdoc: "Learn/How-build-statical-website.md"
-    - Git : "Learn/git.md"
-    - Steam : "Learn/Steam_game.md"
-    - Tensorboard : "Learn/Tensorboard&pytorch.md"
+  #- Home: index.md
+  - cheat sheat : "cheat_sheet.md"
+  #- Learn: 
+    # - Overview : "Learn/learn_homepage.md"
+    
+    # - Knowledage Block : "Learn/Knowledage_block.md"
+    # - Transformer : "Learn/Transformer_structure.ipynb"
+    # - DeepLearning : "Learn/DeepLearning knowledge.md"
+    # - MKdoc: "Learn/How-build-statical-website.md"
+    # - Git : "Learn/git.md"
+    # - Steam : "Learn/Steam_game.md"
+    # - Tensorboard : "Learn/Tensorboard&pytorch.md"
 
   # - Academic:
 
